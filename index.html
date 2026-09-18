@@ -2069,16 +2069,16 @@
     <div class="chatbot-window" id="chatbotWindow">
         <div class="chat-header">
             <div>
-                <h4>LouieBot <i class="fa-solid fa-robot"></i></h4>
+                <h4>Sensie <i class="fa-solid fa-robot"></i></h4>
                 <span>AI Assistant</span>
             </div>
             <button class="chat-close" id="closeChat"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="chat-body" id="chatBody">
-            <div class="chat-msg bot">Hello! I am LouieBot, the AI portfolio assistant for Louie Jay Dela Cruz. You can ask me about his education, projects, skills, or how to contact him. How can I help you today?</div>
+            <div class="chat-msg bot">Hi! Welcome to the portfolio. I am Sensie, the AI assistant for Louie Jay Dela Cruz. Feel free to explore his projects, skills, experience, and services. How can I help you today?</div>
         </div>
         <div class="chat-footer">
-            <input type="text" id="chatInput" placeholder="Ask me something...">
+            <input type="text" id="chatInput" placeholder="Ask Sensie something...">
             <button id="sendChat"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
@@ -2356,7 +2356,7 @@
             });
         });
 
-        // 13. CHATBOT MOCK LOGIC (Based on Assistant Instructions Template)
+        // 13. CHATBOT MOCK LOGIC (SENSIE PERSONA)
         const chatbotToggler = document.getElementById('chatbotToggler');
         const chatbotWindow = document.getElementById('chatbotWindow');
         const closeChat = document.getElementById('closeChat');
@@ -2403,64 +2403,38 @@
             if (e.key === 'Enter') handleSend();
         });
 
-        // Bot Response Logic
+        // Bot Response Logic (Sensie Persona)
         function getBotResponse(input) {
             if (input.includes('project') || input.includes('work')) {
-                return "Louie has developed several projects, including an Enterprise IT Command Center, a secure Private Messenger System, a Google Scripts-based Cleaning System, and his personal Portfolio Website. Would you like a link to one of these?";
+                return "Louie Jay has developed several projects, including an Enterprise IT Command Center, a secure Private Messenger System, a Google Scripts-based Cleaning System, and his personal Portfolio Website. Would you like a link to one of these?";
             } 
             else if (input.includes('skill') || input.includes('tech') || input.includes('language')) {
-                return "Louie's tech stack includes HTML, CSS, JavaScript, PHP, and Java. He also has strong skills in Hardware Troubleshooting and Basic Networking.";
+                return "Louie Jay's tech stack includes HTML, CSS, JavaScript, PHP, and Java. He also has strong skills in Hardware Troubleshooting and Basic Networking.";
             } 
             else if (input.includes('contact') || input.includes('email') || input.includes('hire')) {
-                return "You can contact Louie directly at mis.support02@sotelogroup.ph or use the contact form at the bottom of the page. He is open for Freelance and Full-time opportunities!";
+                return "You can contact Louie Jay directly at louiejaydelacruz26@gmail.com or use the contact form at the bottom of the page. He is open for Freelance and Full-time opportunities.";
             } 
-            else if (input.includes('education') || input.includes('school') || input.includes('study') || input.includes('college') || input.includes('university') || input.includes('degree')) {
-                return "Louie is currently pursuing a Bachelor of Science in Information Technology (BSIT) at Philippine Christian University. He expects to graduate in 2026.";
+            else if (input.includes('education') || input.includes('school') || input.includes('degree')) {
+                return "He is currently pursuing a Bachelor of Science in Information Technology (BSIT) at Philippine Christian University, expecting to graduate in 2026.";
             }
-            else if (input.includes('experience') || input.includes('job') || input.includes('ojt') || input.includes('work experience')) {
-                return "Louie is currently working as an MIS IT Support / Junior Web Developer at Sotelo Group of Companies. He handles internal web applications, developed the Enterprise IT Command Center, and provides technical support.";
+            else if (input.includes('experience') || input.includes('job') || input.includes('ojt')) {
+                return "He is currently working as an MIS IT Support / Junior Web Developer at Sotelo Group of Companies, where he develops internal web applications and provides technical support.";
             }
-            else if (input.includes('hello') || input.includes('hi') || input.includes('hey') || input.includes('greetings') || input.includes('good morning') || input.includes('good afternoon') || input.includes('good evening')) {
-                return "Hello! How can I assist you with Louie's portfolio today?";
+            else if (input.includes('hello') || input.includes('hi') || input.includes('hey')) {
+                return "Hello! I am Sensie. How can I assist you with Louie Jay's portfolio today?";
             }
-            else if (input.includes('how are you') || input.includes('what\'s up') || input.includes('whats up')) {
-                return "I'm just a bot, but I'm doing well! I'm here to help you learn more about Louie Jay Dela Cruz. What would you like to know?";
+            else if (input.includes('who are you') || input.includes('your name')) {
+                 return "I am Sensie, an AI assistant designed to help you navigate and learn about Louie Jay Dela Cruz's professional background.";
             }
-            else if (input.includes('who are you') || input.includes('what are you') || input.includes('your name')) {
-                 return "I am LouieBot, an AI assistant designed to help you navigate and learn about Louie Jay Dela Cruz's professional portfolio.";
-            }
-            else if (input.includes('thank') || input.includes('thanks') || input.includes('appreciate')) {
-                 return "You're very welcome! Feel free to ask if you have any more questions.";
-            }
-            else if (input.includes('bye') || input.includes('goodbye') || input.includes('see you')) {
-                 return "Goodbye! Thanks for visiting Louie's portfolio. Have a great day!";
-            }
-            else if (input.includes('hobby') || input.includes('hobbies') || input.includes('free time') || input.includes('fun')) {
-                 return "While my knowledge base is mostly professional, I know Louie is passionate about technology, learning new web development stacks, and solving real-world IT problems.";
-            }
-            else if (input.includes('location') || input.includes('where') || input.includes('live') || input.includes('address')) {
-                 return "Louie is based in Parañaque, Metro Manila, Philippines.";
-            }
-            else if (input.includes('rate') || input.includes('cost') || input.includes('price') || input.includes('pay') || input.includes('salary')) {
-                 return "For inquiries regarding rates or quotes for freelance and full-time opportunities, please contact Louie directly through the contact form or email at mis.support02@sotelogroup.ph.";
+            else if (input.includes('rate') || input.includes('cost') || input.includes('price')) {
+                 return "I cannot negotiate rates. For inquiries regarding rates or quotes for freelance and full-time opportunities, please contact him directly at louiejaydelacruz26@gmail.com.";
             }
             else if (input.includes('resume') || input.includes('cv') || input.includes('download')) {
-                 return "You can download Louie's CV using the 'Download CV' button located in the Hero section at the top of the page.";
-            }
-             else if (input.includes('command center') || input.includes('enterprise')) {
-                 return "The Enterprise IT Command Center is a centralized IT helpdesk platform Louie developed for Sotelo Group of Companies to manage tickets and workflow using PHP, MySQL, JavaScript, and Bootstrap.";
-            }
-            else if (input.includes('messenger') || input.includes('private')) {
-                 return "The Private Messenger System is a secure, real-time messaging web application built by Louie featuring user authentication and private communication channels.";
-            }
-            else if (input.includes('cleaning') || input.includes('script')) {
-                 return "The Cleaning System is a web-based task and schedule management app Louie developed using Google Apps Script, HTML, and JavaScript.";
-            }
-            else if (input.includes('certification') || input.includes('award') || input.includes('achievement')) {
-                 return "Louie holds a certification from the Philippine Computer Society, issued in December 2025.";
+                 return "You can download his CV using the 'Download CV' button located in the Hero section at the top of the page.";
             }
             else {
-                return "I'm sorry, I don't have that information in my current portfolio data. For confirmation, please reach out to Louie directly at mis.support02@sotelogroup.ph.";
+                // Strict Missing Information Fallback
+                return "I'm not able to confirm that — I’m sorry, but I don’t have enough information to answer that accurately. Please contact Louie Jay directly for more details at louiejaydelacruz26@gmail.com.";
             }
         }
     </script>
