@@ -493,16 +493,20 @@
             opacity: 1;
         }
 
-        /* SCROLL REVEAL ANIMATION CLASSES */
-        .reveal {
+        /* EPIC SCROLL REVEAL ANIMATION CLASSES */
+        .reveal, .reveal-left, .reveal-right, .reveal-zoom {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth cinematic bounce */
         }
+        
+        .reveal { transform: translateY(50px); }
+        .reveal-left { transform: translateX(-80px); }
+        .reveal-right { transform: translateX(80px); }
+        .reveal-zoom { transform: scale(0.8) translateY(30px); }
 
-        .reveal.active {
+        .reveal.active, .reveal-left.active, .reveal-right.active, .reveal-zoom.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: translate(0) scale(1);
         }
 
         /* Stats Section */
@@ -523,13 +527,14 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            transition: 0.3s;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .stat-box:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.03) !important; /* Scale effect added on hover */
             border-color: rgba(124, 58, 237, 0.3);
             box-shadow: 0 10px 20px rgba(124, 58, 237, 0.15);
+            z-index: 10;
         }
 
         .stat-box i {
@@ -623,13 +628,14 @@
             border-radius: 12px;
             border: 1px solid var(--border-color);
             overflow: hidden;
-            transition: 0.3s;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .skill-card:hover {
-            transform: scale(1.02);
+            transform: scale(1.05) !important;
             border-color: rgba(6, 182, 212, 0.4);
             box-shadow: 0 10px 20px rgba(6, 182, 212, 0.1);
+            z-index: 10;
         }
 
         .skill-info {
@@ -670,7 +676,7 @@
             border-radius: 3px;
             position: relative;
             width: 0%;
-            transition: width 1.2s ease-in-out;
+            transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1); /* Smoother progress bar fill */
         }
 
         /* Projects Category Filter */
@@ -714,7 +720,7 @@
             border: 1px solid var(--border-color);
             border-radius: 12px;
             overflow: hidden;
-            transition: 0.4s ease;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .project-card.hide {
@@ -722,9 +728,10 @@
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-8px) scale(1.02) !important;
             border-color: rgba(124, 58, 237, 0.5);
             box-shadow: 0 15px 30px rgba(124, 58, 237, 0.2);
+            z-index: 10;
         }
 
         .project-img-placeholder {
@@ -806,13 +813,14 @@
             padding: 30px;
             border-radius: 12px;
             position: relative;
-            transition: 0.3s;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .testimonial-card:hover {
             border-color: var(--primary);
             box-shadow: 0 10px 20px rgba(124, 58, 237, 0.1);
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02) !important;
+            z-index: 10;
         }
 
         .testimonial-card i.quote-icon {
@@ -1569,7 +1577,8 @@
         
         <button id="soundToggle" class="btn-sound" title="Toggle Sound"><i class="fa-solid fa-volume-xmark"></i></button>
 
-        <div class="hero-content reveal">
+        <!-- ADDED EPIC REVEAL-LEFT -->
+        <div class="hero-content reveal-left">
             <span class="badge-dev">WELCOME TO MY PORTFOLIO</span>
             <h1>Hi, I'm Louie Jay</h1>
             <span class="typing-text"></span>
@@ -1624,7 +1633,8 @@
             </div>
         </div>
 
-        <div class="hero-img-container reveal">
+        <!-- ADDED EPIC REVEAL-RIGHT -->
+        <div class="hero-img-container reveal-right">
             <!-- 3-Image Rotating Profile Frame -->
             <div class="hero-card-frame">
                 <img src="helo.png" alt="Louie Jay Profile Picture 1" class="profile-slide active">
@@ -1636,28 +1646,29 @@
 
     <!-- Stats Section -->
     <div class="stats-section reveal">
-        <div class="stat-box">
+        <!-- ADDED REVEAL-ZOOM -->
+        <div class="stat-box reveal-zoom">
             <i class="fa-solid fa-graduation-cap"></i>
             <div>
                 <h3>BSIT</h3>
                 <p>Current Degree</p>
             </div>
         </div>
-        <div class="stat-box">
+        <div class="stat-box reveal-zoom">
             <i class="fa-solid fa-code"></i>
             <div>
                 <h3>Projects</h3>
                 <p>Handled & Built</p>
             </div>
         </div>
-        <div class="stat-box">
+        <div class="stat-box reveal-zoom">
             <i class="fa-solid fa-face-smile"></i>
             <div>
                 <h3>Learning</h3>
                 <p>Continuous Growth</p>
             </div>
         </div>
-        <div class="stat-box">
+        <div class="stat-box reveal-zoom">
             <i class="fa-solid fa-check-circle"></i>
             <div>
                 <h3>100%</h3>
@@ -1667,7 +1678,8 @@
     </div>
 
     <!-- About Section -->
-    <section id="about" class="reveal">
+    <!-- ADDED REVEAL-FADE -->
+    <section id="about" class="reveal-fade">
         <div class="section-title">
             <h3>About Me</h3>
             <h2>I'm passionate about creating digital solutions</h2>
@@ -1687,8 +1699,8 @@
         </div>
         
         <div class="journey-container">
-            <!-- Education Column -->
-            <div class="journey-column">
+            <!-- Education Column ADDED REVEAL-LEFT -->
+            <div class="journey-column reveal-left">
                 <h3 class="journey-column-title"><i class="fa-solid fa-user-graduate"></i> Education</h3>
                 
                 <div class="journey-box">
@@ -1701,8 +1713,8 @@
                 </div>
             </div>
 
-            <!-- Experience Column -->
-            <div class="journey-column">
+            <!-- Experience Column ADDED REVEAL-RIGHT -->
+            <div class="journey-column reveal-right">
                 <h3 class="journey-column-title"><i class="fa-solid fa-briefcase"></i> Experience</h3>
                 
                 <div class="journey-box">
@@ -1727,7 +1739,8 @@
             <h2>TECHNICAL SKILLS & CAPABILITIES</h2>
         </div>
         <div class="skills-grid">
-            <div class="skill-card">
+            <!-- ADDED REVEAL-ZOOM TO ALL SKILL CARDS -->
+            <div class="skill-card reveal-zoom">
                 <div class="skill-info">
                     <div class="skill-name-container">
                         <img src="9f2244b0854500f24bcddd0ee52214fe.webp" alt="HTML/CSS Icon" class="skill-icon">
@@ -1738,7 +1751,7 @@
                 <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
             </div>
 
-             <div class="skill-card">
+             <div class="skill-card reveal-zoom">
                 <div class="skill-info">
                     <div class="skill-name-container">
                         <img src="github.jpeg
@@ -1750,7 +1763,7 @@
                 <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
             </div>
             
-            <div class="skill-card">
+            <div class="skill-card reveal-zoom">
                 <div class="skill-info">
                     <div class="skill-name-container">
                         <img src="images.png" alt="JavaScript Icon" class="skill-icon">
@@ -1761,7 +1774,7 @@
                 <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card reveal-zoom">
                 <div class="skill-info">
                     <div class="skill-name-container">
                         <img src="images (1).jpeg" alt="PHP Icon" class="skill-icon">
@@ -1772,7 +1785,7 @@
                 <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card reveal-zoom">
                 <div class="skill-info">
                     <div class="skill-name-container">
                         <img src="images (1).png" alt="Java Icon" class="skill-icon">
@@ -1783,7 +1796,7 @@
                 <div class="progress-bar"><div class="progress" data-width="75%"></div></div>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card reveal-zoom">
                 <div class="skill-info">
                     <div class="skill-name-container">
                         <img src="pngtree-computer-hardware-setting-gear-blue-dotted-line-line-icon-png-image_1647491.jpg" alt="Hardware Icon" class="skill-icon">
@@ -1794,7 +1807,7 @@
                 <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
             </div>
             
-            <div class="skill-card">
+            <div class="skill-card reveal-zoom">
                 <div class="skill-info">
                     <div class="skill-name-container">
                         <img src="xampp.jpeg" alt="Xampp Icon" class="skill-icon">
@@ -1805,7 +1818,7 @@
                 <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card reveal-zoom">
                 <div class="skill-info">
                     <div class="skill-name-container">
                         <img src="network.jpeg" alt="Networking Icon" class="skill-icon">
@@ -1834,7 +1847,8 @@
         </div>
 
         <div class="projects-grid">
-            <div class="project-card" data-category="systems">
+            <!-- ADDED REVEAL-ZOOM -->
+            <div class="project-card reveal-zoom" data-category="systems">
                 <div class="project-img-placeholder">
                     <img src="interprice.png" alt="Enterprise IT Command Center">
                 </div>
@@ -1855,7 +1869,8 @@
                 </div>
             </div>
 
-            <div class="project-card" data-category="web">
+            <!-- ADDED REVEAL-ZOOM -->
+            <div class="project-card reveal-zoom" data-category="web">
                 <div class="project-img-placeholder">
                     <img src="portfolio.png" alt="Portfolio Website">
                 </div>
@@ -1876,7 +1891,8 @@
                 </div>
             </div>
 
-            <div class="project-card" data-category="web">
+            <!-- ADDED REVEAL-ZOOM -->
+            <div class="project-card reveal-zoom" data-category="web">
                 <div class="project-img-placeholder">
                     <img src="Private.png" alt="Private Messenger System">
                 </div>
@@ -1897,7 +1913,8 @@
                 </div>
             </div>
 
-            <div class="project-card" data-category="script">
+            <!-- ADDED REVEAL-ZOOM -->
+            <div class="project-card reveal-zoom" data-category="script">
                 <div class="project-img-placeholder">
                     <img src="cleaning.png" alt="Cleaning System">
                 </div>
@@ -1929,8 +1946,8 @@
         
         <!-- INAYOS ANG CERT-GRID PARA PUMAGITNA AT MAGMUKHANG GAYA SA IMAGE -->
         <div class="cert-grid">
-            <!-- Certification Card 1 -->
-            <div class="cert-card">
+            <!-- Certification Card 1 ADDED REVEAL-ZOOM -->
+            <div class="cert-card reveal-zoom">
                 <img src="Screenshot 2026-09-18 091834.png" alt="Certificate 1" class="cert-img">
                 <div class="cert-info">
                     <h4>PHILIPPINE COMPUTER SOCIETY</h4>
@@ -1948,7 +1965,8 @@
             <h2>What Teammates & Mentors Say</h2>
         </div>
         <div class="testimonials-grid">
-            <div class="testimonial-card">
+            <!-- ADDED REVEAL-LEFT -->
+            <div class="testimonial-card reveal-left">
                 <i class="fa-solid fa-quote-left quote-icon"></i>
                 <p>"Louie Jay demonstrates strong problem-solving skills and a fast learning curve when developing internal web applications."</p>
                 <div class="author-info">
@@ -1956,7 +1974,8 @@
                     <span>Sotelo Group of Companies</span>
                 </div>
             </div>
-            <div class="testimonial-card">
+            <!-- ADDED REVEAL-RIGHT -->
+            <div class="testimonial-card reveal-right">
                 <i class="fa-solid fa-quote-left quote-icon"></i>
                 <p>"Louie Jay is a dedicated and hardworking BSIT student who shows strong interest in web development and technology. He is also willing to learn, solve technical problems, and provide support whenever needed.""</p>
                 <div class="author-info">
@@ -1976,8 +1995,8 @@
         
         <div class="contact-container split-layout">
             
-            <!-- Left Side: Contact Information Cards -->
-            <div class="contact-info-wrapper">
+            <!-- Left Side: Contact Information Cards ADDED REVEAL-LEFT -->
+            <div class="contact-info-wrapper reveal-left">
                 <h3>Let's build something together!</h3>
                 <p>Feel free to reach out if you're looking for a developer, have a question, or simply want to connect.</p>
 
@@ -2014,8 +2033,8 @@
                 </div>
             </div>
 
-            <!-- Right Side: The Contact Form with Icons and Chips -->
-            <div class="contact-form-wrapper">
+            <!-- Right Side: The Contact Form with Icons and Chips ADDED REVEAL-RIGHT -->
+            <div class="contact-form-wrapper reveal-right">
                 <form class="contact-form" id="contactForm">
                     
                     <div class="form-group">
@@ -2145,7 +2164,8 @@
         });
 
         // 3. SCROLL REVEAL & SKILLS PROGRESS ANIMATION
-        const reveals = document.querySelectorAll('.reveal');
+        // IN-UPGRADE: Sinama ang mga bagong epic reveal classes
+        const reveals = document.querySelectorAll('.reveal, .reveal-fade, .reveal-left, .reveal-right, .reveal-zoom');
         const progressBars = document.querySelectorAll('.progress');
         
         const revealOptions = {
@@ -2156,9 +2176,17 @@
         const revealOnScroll = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
                 if(!entry.isIntersecting) return;
+                
+                // EPIC UPGRADE: Dagdag na delay para sa grid items (domino effect) para sunod-sunod yung labas
+                if(entry.target.classList.contains('stat-box') || entry.target.classList.contains('skill-card') || entry.target.classList.contains('project-card')) {
+                    let delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 0.15;
+                    entry.target.style.transitionDelay = `${delay}s`;
+                }
+
                 entry.target.classList.add('active');
 
-                if(entry.target.id === 'skills') {
+                // Check kung nasa skills section na (para ma-trigger ang progress bar ng tama)
+                if(entry.target.closest('#skills')) {
                     progressBars.forEach(bar => {
                         bar.style.width = bar.getAttribute('data-width');
                     });
@@ -2233,6 +2261,10 @@
                 projectCards.forEach(card => {
                     if (filter === 'all' || card.getAttribute('data-category') === filter) {
                         card.classList.remove('hide');
+                        // Quick re-trigger animation pag nag-filter
+                        card.style.transitionDelay = '0s';
+                        card.classList.remove('active');
+                        setTimeout(() => card.classList.add('active'), 50);
                     } else {
                         card.classList.add('hide');
                     }
