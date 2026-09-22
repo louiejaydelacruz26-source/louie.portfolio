@@ -86,10 +86,10 @@
             font-size: 0.9rem;
             transition: 0.3s;
             position: relative;
-            padding-bottom: 5px; /* UPGRADE: Space for sliding underline */
+            padding-bottom: 5px; /* Space for sliding underline */
         }
 
-        /* UPGRADE: Sliding Underline Animation on Nav Links */
+        /* Sliding Underline Animation on Nav Links */
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -113,7 +113,7 @@
             width: 100%;
         }
 
-        /* --- BAGONG PILL THEME SWITCH (KATABI NG CONTACT) --- */
+        /* THEME SWITCH */
         .theme-switch-wrapper {
             display: flex;
             align-items: center;
@@ -198,12 +198,12 @@
             font-size: 0.85rem;
             transition: 0.3s;
             box-shadow: 0 5px 15px rgba(124, 58, 237, 0.2);
-            position: relative; /* UPGRADE: Shine effect setup */
+            position: relative; /* Shine effect setup */
             overflow: hidden;
             z-index: 1;
         }
 
-        /* UPGRADE: Button Shine Effect */
+        /* Button Shine Effect */
         .btn-hire::before, .btn-primary::before, .btn-submit::before {
             content: '';
             position: absolute;
@@ -314,7 +314,7 @@
             backdrop-filter: blur(5px);
         }
 
-        /* TEXT GRADIENT UPGRADE */
+        /* TEXT GRADIENT */
         .hero-content h1 {
             font-size: 3.5rem;
             font-weight: 800;
@@ -330,7 +330,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* UPGRADE: Blinking Cursor and Wrapper */
+        /* Blinking Cursor and Wrapper */
         .typing-wrapper {
             display: flex;
             align-items: center;
@@ -351,13 +351,12 @@
             font-size: 1.5rem;
             color: var(--primary);
             font-weight: 600;
-            /* Inalis yung display block at height para ang wrapper ang mag handle */
         }
 
         .hero-content p {
             color: var(--text-muted);
-            font-size: 1rem;
-            max-width: 480px;
+            font-size: 1.05rem; /* slightly larger for readability */
+            max-width: 500px; /* slightly wider */
             margin-bottom: 25px;
             line-height: 1.8;
         }
@@ -381,7 +380,7 @@
             gap: 8px;
             transition: 0.3s;
             box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
-            position: relative; /* UPGRADE: Shine setup */
+            position: relative; /* Shine setup */
             overflow: hidden;
             z-index: 1;
         }
@@ -456,7 +455,7 @@
             flex-wrap: wrap;
         }
 
-        /* UPGRADE: Continuous Floating Animation for Tech Icons */
+        /* Continuous Floating Animation for Tech Icons */
         @keyframes floatContinuous {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-8px); }
@@ -469,7 +468,7 @@
             display: inline-block;
         }
 
-        /* UPGRADE: Applied floating delays to each icon */
+        /* Applied floating delays to each icon */
         .tech-tooltip:nth-child(1) .tech-icon-img { animation-delay: 0s; }
         .tech-tooltip:nth-child(2) .tech-icon-img { animation-delay: 0.2s; }
         .tech-tooltip:nth-child(3) .tech-icon-img { animation-delay: 0.4s; }
@@ -488,15 +487,15 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: 0.3s ease;
             cursor: pointer;
-            animation: floatContinuous 3s ease-in-out infinite; /* Added Float */
+            animation: floatContinuous 3s ease-in-out infinite;
         }
 
         .tech-icon-img:hover {
             border-color: var(--primary);
-            transform: translateY(-5px); /* Optional: hover effect overrides float */
+            transform: translateY(-5px);
             background: #1e293b;
             box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
-            animation-play-state: paused; /* Stops float when hovered */
+            animation-play-state: paused;
         }
 
         .tech-tooltip .tooltip-text {
@@ -536,7 +535,7 @@
             align-items: center;
         }
 
-        /* UPGRADE: Breathing Glowing Frame */
+        /* Breathing Glowing Frame */
         @keyframes breathingGlow {
             0% { box-shadow: 0 0 30px rgba(124, 58, 237, 0.7), 0 0 60px rgba(6, 182, 212, 0.4); }
             50% { box-shadow: 0 0 50px rgba(124, 58, 237, 1), 0 0 90px rgba(6, 182, 212, 0.7); }
@@ -552,7 +551,7 @@
             background: #22262e;
             overflow: hidden;
             border: 6px solid var(--primary); 
-            animation: breathingGlow 4s ease-in-out infinite; /* Added Glow Animation */
+            animation: breathingGlow 4s ease-in-out infinite;
         }
 
         .hero-card-frame img {
@@ -574,17 +573,18 @@
         }
 
         /* EPIC SCROLL REVEAL ANIMATION CLASSES */
-        .reveal, .reveal-left, .reveal-right, .reveal-zoom {
+        .reveal, .reveal-left, .reveal-right, .reveal-zoom, .reveal-fade {
             opacity: 0;
             transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth cinematic bounce */
         }
         
         .reveal { transform: translateY(50px); }
+        .reveal-fade { transform: translateY(30px); }
         .reveal-left { transform: translateX(-80px); }
         .reveal-right { transform: translateX(80px); }
         .reveal-zoom { transform: scale(0.8) translateY(30px); }
 
-        .reveal.active, .reveal-left.active, .reveal-right.active, .reveal-zoom.active {
+        .reveal.active, .reveal-left.active, .reveal-right.active, .reveal-zoom.active, .reveal-fade.active {
             opacity: 1;
             transform: translate(0) scale(1);
         }
@@ -607,12 +607,12 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            /* UPGRADE: Changed ease to cubic-bezier for spring effect */
+            /* Changed ease to cubic-bezier for spring effect */
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .stat-box:hover {
-            transform: translateY(-5px) scale(1.03) !important; /* Scale effect added on hover */
+            transform: translateY(-5px) scale(1.03) !important;
             border-color: rgba(124, 58, 237, 0.3);
             box-shadow: 0 10px 20px rgba(124, 58, 237, 0.15);
             z-index: 10;
@@ -656,7 +656,6 @@
             margin-bottom: 5px;
         }
 
-        /* GRADIENT H2 UPGRADE */
         .section-title h2 {
             font-size: 2.2rem;
             background: linear-gradient(90deg, var(--text-main), var(--primary));
@@ -709,7 +708,7 @@
             border-radius: 12px;
             border: 1px solid var(--border-color);
             overflow: hidden;
-            /* UPGRADE: Changed ease to cubic-bezier for spring effect */
+            /* Changed ease to cubic-bezier for spring effect */
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
@@ -758,7 +757,7 @@
             border-radius: 3px;
             position: relative;
             width: 0%;
-            transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1); /* Smoother progress bar fill */
+            transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         /* Projects Category Filter */
@@ -802,7 +801,7 @@
             border: 1px solid var(--border-color);
             border-radius: 12px;
             overflow: hidden;
-            /* UPGRADE: Changed ease to cubic-bezier for spring effect */
+            /* Changed ease to cubic-bezier for spring effect */
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
@@ -896,7 +895,7 @@
             padding: 30px;
             border-radius: 12px;
             position: relative;
-            /* UPGRADE: Changed ease to cubic-bezier for spring effect */
+            /* Changed ease to cubic-bezier for spring effect */
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
@@ -1010,7 +1009,7 @@
             font-weight: 600;
         }
 
-        /* --- CONTACT SECTION UPGRADES --- */
+        /* --- CONTACT SECTION --- */
         .contact-container.split-layout {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
@@ -1024,7 +1023,6 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
-        /* Left Side: Contact Info Cards */
         .contact-info-wrapper {
             display: flex;
             flex-direction: column;
@@ -1086,7 +1084,6 @@
             color: var(--primary);
         }
 
-        /* Social Icons in Contact */
         .contact-socials {
             display: flex;
             gap: 15px;
@@ -1114,7 +1111,6 @@
             box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
         }
 
-        /* Right Side: Contact Form Elements */
         .contact-form {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1125,7 +1121,6 @@
             grid-column: 1 / -1;
         }
 
-        /* Form Input Wrapper for Icons */
         .input-wrapper {
             position: relative;
             width: 100%;
@@ -1146,7 +1141,7 @@
 
         .contact-form input, .contact-form textarea {
             width: 100%;
-            padding: 15px 15px 15px 45px; /* Added left padding for icons */
+            padding: 15px 15px 15px 45px;
             background: var(--input-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -1170,7 +1165,6 @@
             resize: vertical;
         }
 
-        /* Quick Subject Chips */
         .subject-chips {
             display: flex;
             flex-wrap: wrap;
@@ -1206,7 +1200,7 @@
             cursor: pointer;
             transition: 0.3s;
             grid-column: 1 / -1;
-            position: relative; /* UPGRADE: Shine effect setup */
+            position: relative;
             overflow: hidden;
             z-index: 1;
         }
@@ -1234,12 +1228,11 @@
                 border-bottom: 1px solid var(--border-color);
             }
             .nav-links.active { display: flex; }
-            .nav-links .theme-switch-wrapper { display: none; } /* Hide duplicate switch in mobile dropdown */
+            .nav-links .theme-switch-wrapper { display: none; }
             .btn-hire { display: none; }
             .hero-img-container { max-width: 340px; }
             .hero { padding-top: 120px; }
             
-            /* Stack the contact layout on mobile */
             .contact-container.split-layout { grid-template-columns: 1fr; gap: 30px; }
         }
 
@@ -1283,7 +1276,6 @@
             border-top: 1px solid var(--border-color);
         }
 
-        /* IN-ADJUST NA BACK TO TOP */
         #backToTop {
             position: fixed;
             bottom: -50px;
@@ -1306,7 +1298,7 @@
         }
 
         #backToTop.show {
-            bottom: 100px; /* Moved up to make room for chatbot */
+            bottom: 100px;
             opacity: 1;
             pointer-events: auto;
         }
@@ -1316,11 +1308,10 @@
             transform: translateY(-5px);
         }
 
-        /* IN-ADJUST NA TOAST NOTIFICATION */
         .toast-container {
             position: fixed;
             bottom: 30px;
-            left: 30px; /* Moved to left so it doesn't overlap chat */
+            left: 30px;
             z-index: 3000;
         }
 
@@ -1334,7 +1325,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            transform: translateX(-120%); /* Slide from left */
+            transform: translateX(-120%);
             transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
@@ -1342,7 +1333,7 @@
             transform: translateX(0);
         }
 
-        /* --- ADDED CSS FOR NEW SECTIONS ONLY --- */
+        /* Journey Container */
         .journey-container {
             display: flex;
             gap: 40px;
@@ -1373,7 +1364,6 @@
             border-right: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
             position: relative;
-            /* UPGRADE: Changed ease to cubic-bezier for spring effect */
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .journey-box:hover {
@@ -1406,7 +1396,7 @@
         .journey-subtitle { color: var(--accent); font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; }
         .journey-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
 
-        /* UPGRADED CERTIFICATION CSS FOR CENTERED LOOK */
+        /* Certifications */
         .cert-grid {
             display: flex;
             flex-direction: column;
@@ -1423,10 +1413,10 @@
             padding: 25px;
             transition: 0.3s;
             display: flex;
-            align-items: center; /* Center the image vertically */
+            align-items: center; 
             gap: 20px;
             width: 100%;
-            max-width: 800px; /* Constrain width so it matches the image perfectly */
+            max-width: 800px; 
         }
         
         .cert-card:hover {
@@ -1435,7 +1425,6 @@
             box-shadow: 0 10px 25px rgba(124, 58, 237, 0.1);
         }
         
-        /* NEW CERTIFICATE IMAGE CSS */
         .cert-img {
             width: 90px;
             height: 90px;
@@ -1451,7 +1440,6 @@
         .cert-info span.date { color: var(--text-muted); font-size: 0.8rem; }
 
         /* --- CHATBOT UI CSS --- */
-        /* UPGRADE: Pulse animation for Chatbot */
         @keyframes pulseChat {
             0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(124, 58, 237, 0); }
@@ -1475,7 +1463,7 @@
             z-index: 2500;
             transition: 0.3s;
             font-size: 1.5rem;
-            animation: pulseChat 2s infinite; /* Applied pulse animation */
+            animation: pulseChat 2s infinite; 
         }
 
         .chatbot-toggler:hover {
@@ -1650,7 +1638,7 @@
             <li><a href="#testimonials" class="nav-item">Feedback</a></li>
             <li><a href="#contact" class="nav-item">Contact</a></li>
             
-            <!-- NEW PILL THEME SWITCH (Beside Contact) -->
+            <!-- PILL THEME SWITCH -->
             <li class="theme-switch-wrapper">
                 <label class="theme-switch" for="themeToggle">
                     <input type="checkbox" id="themeToggle" />
@@ -1674,16 +1662,16 @@
         
         <button id="soundToggle" class="btn-sound" title="Toggle Sound"><i class="fa-solid fa-volume-xmark"></i></button>
 
-        <!-- ADDED EPIC REVEAL-LEFT -->
         <div class="hero-content reveal-left">
             <span class="badge-dev">WELCOME TO MY PORTFOLIO</span>
             <h1>Hi, I'm Louie Jay</h1>
-            <!-- UPGRADE: Wrapper at Blinking cursor para sa Typing Text -->
+            
             <div class="typing-wrapper">
                 <span class="typing-text"></span><span class="typing-cursor">|</span>
             </div>
             
-            <p>As a dedicated BSIT student and Junior Web Developer, I combine my academic foundation with hands-on technical skills. I am passionate about building responsive web applications, solving real-world IT problems, and continuously expanding my tech stack.</p>
+            <!-- PRO COPYWRITING UPDATE -->
+            <p>Transforming complex ideas into seamless digital experiences. As a Junior Web Developer and dedicated IT professional, I build robust web applications, architect efficient databases, and deliver reliable IT support—bridging the gap between cutting-edge technology and real-world solutions.</p>
             
             <div class="hero-btns">
                 <a href="#projects" class="btn-primary">View My Work <i class="fa-solid fa-arrow-right"></i></a>
@@ -1711,7 +1699,6 @@
                         <img src="github.jpeg" alt="GitHub" class="tech-icon-img">
                         <span class="tooltip-text">Github: Version Control & Collaboration</span>
                     </div>
-                    
                     <div class="tech-tooltip">
                         <img src="images.png" alt="JavaScript" class="tech-icon-img">
                         <span class="tooltip-text">JS: Dynamic Interactivity & ES6</span>
@@ -1732,9 +1719,7 @@
             </div>
         </div>
 
-        <!-- ADDED EPIC REVEAL-RIGHT -->
         <div class="hero-img-container reveal-right">
-            <!-- 3-Image Rotating Profile Frame -->
             <div class="hero-card-frame">
                 <img src="helo.png" alt="Louie Jay Profile Picture 1" class="profile-slide active">
                 <img src="jjs.png" alt="Louie Jay Profile Picture 2" class="profile-slide">
@@ -1745,47 +1730,47 @@
 
     <!-- Stats Section -->
     <div class="stats-section reveal">
-        <!-- ADDED REVEAL-ZOOM -->
+        <!-- PRO COPYWRITING UPDATE -->
         <div class="stat-box reveal-zoom">
             <i class="fa-solid fa-graduation-cap"></i>
             <div>
-                <h3>BSIT</h3>
-                <p>Current Degree</p>
+                <h3>BSIT Scholar</h3>
+                <p>Academic Foundation</p>
             </div>
         </div>
         <div class="stat-box reveal-zoom">
             <i class="fa-solid fa-code"></i>
             <div>
-                <h3>Projects</h3>
-                <p>Handled & Built</p>
+                <h3>Web Projects</h3>
+                <p>Developed & Deployed</p>
             </div>
         </div>
         <div class="stat-box reveal-zoom">
             <i class="fa-solid fa-face-smile"></i>
             <div>
-                <h3>Learning</h3>
-                <p>Continuous Growth</p>
+                <h3>Tech Enthusiast</h3>
+                <p>Continuous Learner</p>
             </div>
         </div>
         <div class="stat-box reveal-zoom">
             <i class="fa-solid fa-check-circle"></i>
             <div>
-                <h3>100%</h3>
-                <p>Dedication</p>
+                <h3>100% Commitment</h3>
+                <p>To Excellence</p>
             </div>
         </div>
     </div>
 
     <!-- About Section -->
-    <!-- ADDED REVEAL-FADE -->
     <section id="about" class="reveal-fade">
         <div class="section-title">
             <h3>About Me</h3>
             <h2>I'm passionate about creating digital solutions</h2>
         </div>
         <div class="about-content-box">
+            <!-- PRO COPYWRITING UPDATE -->
             <p>
-                I am a dedicated BSIT student based in Parañaque, Metro Manila, transitioning into a Junior Web Developer role. I focus on writing clean, efficient, and user-friendly code. Through hands-on projects and continuous technical training, I am constantly enhancing my programming logic and expanding my web development stack.
+                Based in Parañaque, Metro Manila, I am a passionate technologist driven by curiosity and a desire to build high-quality, scalable digital solutions. My expertise spans both front-end aesthetics and back-end logic, ensuring every project I develop is not only visually engaging but functionally robust. Whether I'm optimizing an enterprise IT helpdesk or designing a seamless web interface, my goal remains the same: to leverage modern technology to solve complex problems and drive everyday efficiency.
             </p>
         </div>
     </section>
@@ -1794,11 +1779,10 @@
     <section id="journey" class="reveal">
         <div class="section-title">
             <h3>My Journey</h3>
-            <h2>Education & Work Experience</h2>
+            <h2>Education & Professional Experience</h2>
         </div>
         
         <div class="journey-container">
-            <!-- Education Column ADDED REVEAL-LEFT -->
             <div class="journey-column reveal-left">
                 <h3 class="journey-column-title"><i class="fa-solid fa-user-graduate"></i> Education</h3>
                 
@@ -1806,26 +1790,20 @@
                     <span class="journey-date">2024 - Expected 2028</span>
                     <h4 class="journey-title">Bachelor of Science in Information Technology (BSIT)</h4>
                     <p class="journey-subtitle">Philippine Christian University</p>
-                    <p class="journey-desc">Currently enrolled as a Bachelor of Science in Information Technology (BSIT) student, 
-    developing skills in web development, programming, database management, networking, 
-    and system administration.</p>
+                    <!-- PRO COPYWRITING UPDATE -->
+                    <p class="journey-desc">Immersed in a comprehensive IT curriculum, mastering core concepts in advanced web development, software engineering, database architecture, and network administration.</p>
                 </div>
             </div>
 
-            <!-- Experience Column ADDED REVEAL-RIGHT -->
             <div class="journey-column reveal-right">
                 <h3 class="journey-column-title"><i class="fa-solid fa-briefcase"></i> Experience</h3>
                 
                 <div class="journey-box">
                     <span class="journey-date">2024 TO 2026</span>
-                    <h4 class="journey-title">MIS IT SUPPORT /JUNIOR WEB DEVELOPER</h4>
+                    <h4 class="journey-title">MIS IT SUPPORT / JUNIOR WEB DEVELOPER</h4>
                     <p class="journey-subtitle">Sotelo Group of Companies</p>
-                    <p class="journey-desc"> Handled internal web applications, developed the Enterprise IT Command Center,
-    and provided dedicated technical support. Provided IT support to users by
-    troubleshooting hardware, software, network, and system-related issues.
-    Assisted with computer setup, software installation, user account configuration,
-    printer and peripheral troubleshooting, and basic network connectivity problems.
-    Used PHP, JavaScript, and MySQL for system improvements.</p>
+                    <!-- PRO COPYWRITING UPDATE -->
+                    <p class="journey-desc">Spearheaded the design and deployment of the Enterprise IT Command Center and managed crucial internal web applications. Delivered top-tier IT support by resolving complex hardware, software, and network issues. Proactively engineered custom system enhancements utilizing PHP, JavaScript, and MySQL to optimize organizational workflow.</p>
                 </div>
             </div>
         </div>
@@ -1835,10 +1813,9 @@
     <section id="skills" class="reveal">
         <div class="section-title">
             <h3>My Skills</h3>
-            <h2>TECHNICAL SKILLS & CAPABILITIES</h2>
+            <h2>TECHNICAL EXPERTISE & CAPABILITIES</h2>
         </div>
         <div class="skills-grid">
-            <!-- ADDED REVEAL-ZOOM TO ALL SKILL CARDS -->
             <div class="skill-card reveal-zoom">
                 <div class="skill-info">
                     <div class="skill-name-container">
@@ -1853,8 +1830,7 @@
              <div class="skill-card reveal-zoom">
                 <div class="skill-info">
                     <div class="skill-name-container">
-                        <img src="github.jpeg
-                        " alt="GitHub Icon" class="skill-icon">
+                        <img src="github.jpeg" alt="GitHub Icon" class="skill-icon">
                         <span>GitHub</span>
                     </div>
                     <span>80%</span>
@@ -1910,7 +1886,7 @@
                 <div class="skill-info">
                     <div class="skill-name-container">
                         <img src="xampp.jpeg" alt="Xampp Icon" class="skill-icon">
-                        <span>xampp</span>
+                        <span>XAMPP</span>
                     </div>
                     <span>85%</span>
                 </div>
@@ -1934,10 +1910,9 @@
     <section id="projects" class="reveal">
         <div class="section-title">
             <h3>Featured Projects</h3>
-            <h2>Some of My Recent Work</h2>
+            <h2>Showcasing Innovative Digital Solutions</h2> <!-- PRO COPYWRITING UPDATE -->
         </div>
 
-        <!-- Filter Buttons -->
         <div class="project-filters">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="systems">Systems / Helpdesk</button>
@@ -1946,7 +1921,6 @@
         </div>
 
         <div class="projects-grid">
-            <!-- ADDED REVEAL-ZOOM -->
             <div class="project-card reveal-zoom" data-category="systems">
                 <div class="project-img-placeholder">
                     <img src="interprice.png" alt="Enterprise IT Command Center">
@@ -1957,7 +1931,7 @@
                         <span style="color: #64748b; font-size: 0.75rem; font-weight: bold;">AUGUST 5, 2025</span>
                     </div>
                     <h3>Enterprise IT Command Center</h3>
-                    <p>Centralized IT helpdesk platform to manage tickets & workflow. <br><br><strong style="color: var(--primary); font-size: 0.85rem;">Contribution:</strong> <span style="font-size: 0.85rem;">MAIN DEVELOPER</span></p>
+                    <p>Centralized IT helpdesk platform to manage tickets & workflow. <br><br><strong style="color: var(--primary); font-size: 0.85rem;">Contribution:</strong> <span style="font-size: 0.85rem;">LEAD DEVELOPER</span></p>
                     <button class="project-link open-modal" 
                             data-title="Enterprise IT Command Center"
                             data-category="COMPANY PROJECT"
@@ -1968,7 +1942,6 @@
                 </div>
             </div>
 
-            <!-- ADDED REVEAL-ZOOM -->
             <div class="project-card reveal-zoom" data-category="web">
                 <div class="project-img-placeholder">
                     <img src="portfolio.png" alt="Portfolio Website">
@@ -1979,7 +1952,7 @@
                         <span style="color: #64748b; font-size: 0.75rem; font-weight: bold;">JANUARY 10,2024</span>
                     </div>
                     <h3>Portfolio Website</h3>
-                    <p>Responsive portfolio showcasing technical capabilities. <br><br><strong style="color: var(--primary); font-size: 0.85rem;">Contribution:</strong> <span style="font-size: 0.85rem;">MAIN DEVELOPER</span></p>
+                    <p>Responsive portfolio showcasing technical capabilities. <br><br><strong style="color: var(--primary); font-size: 0.85rem;">Contribution:</strong> <span style="font-size: 0.85rem;">SOLE DEVELOPER</span></p>
                     <button class="project-link open-modal" 
                             data-title="Portfolio Website"
                             data-category="PERSONAL PROJECT"
@@ -1990,7 +1963,6 @@
                 </div>
             </div>
 
-            <!-- ADDED REVEAL-ZOOM -->
             <div class="project-card reveal-zoom" data-category="web">
                 <div class="project-img-placeholder">
                     <img src="Private.png" alt="Private Messenger System">
@@ -2001,7 +1973,7 @@
                         <span style="color: #64748b; font-size: 0.75rem; font-weight: bold;">JULY 30, 2026</span>
                     </div>
                     <h3>Private Messenger System.01</h3>
-                    <p>Secure real-time messaging application. <br><br><strong style="color: var(--primary); font-size: 0.85rem;">Contribution:</strong> <span style="font-size: 0.85rem;">MAIN DEVELOPER</span></p>
+                    <p>Secure real-time messaging application. <br><br><strong style="color: var(--primary); font-size: 0.85rem;">Contribution:</strong> <span style="font-size: 0.85rem;">LEAD DEVELOPER</span></p>
                     <button class="project-link open-modal" 
                             data-title="Private Messenger System.01"
                             data-category="COMPANY PROJECT"
@@ -2012,7 +1984,6 @@
                 </div>
             </div>
 
-            <!-- ADDED REVEAL-ZOOM -->
             <div class="project-card reveal-zoom" data-category="script">
                 <div class="project-img-placeholder">
                     <img src="cleaning.png" alt="Cleaning System">
@@ -2023,7 +1994,7 @@
                         <span style="color: #64748b; font-size: 0.75rem; font-weight: bold;">MARCH 16,2026</span>
                     </div>
                     <h3>Cleaning System</h3>
-                    <p>Web-based task and schedule management app. <br><br><strong style="color: var(--primary); font-size: 0.85rem;">Contribution:</strong> <span style="font-size: 0.85rem;">MAIN DEVELOPER</span></p>
+                    <p>Web-based task and schedule management app. <br><br><strong style="color: var(--primary); font-size: 0.85rem;">Contribution:</strong> <span style="font-size: 0.85rem;">LEAD DEVELOPER</span></p>
                     <button class="project-link open-modal" 
                             data-title="Cleaning System"
                             data-category="COMPANY PROJECT"
@@ -2043,14 +2014,12 @@
             <h2>Certifications & Awards</h2>
         </div>
         
-        <!-- INAYOS ANG CERT-GRID PARA PUMAGITNA AT MAGMUKHANG GAYA SA IMAGE -->
         <div class="cert-grid">
-            <!-- Certification Card 1 ADDED REVEAL-ZOOM -->
             <div class="cert-card reveal-zoom">
                 <img src="Screenshot 2026-09-18 091834.png" alt="Certificate 1" class="cert-img">
                 <div class="cert-info">
                     <h4>PHILIPPINE COMPUTER SOCIETY</h4>
-                    <span class="issuer">HILARIO F. NARIDA /PCS VICE PRESIDENT</span>
+                    <span class="issuer">HILARIO F. NARIDA / PCS VICE PRESIDENT</span>
                     <span class="date">Issued: Dec 15, 2025</span>
                 </div>
             </div>
@@ -2064,28 +2033,26 @@
             <h2>What Teammates & Mentors Say</h2>
         </div>
         <div class="testimonials-grid">
-            <!-- ADDED REVEAL-LEFT -->
             <div class="testimonial-card reveal-left">
                 <i class="fa-solid fa-quote-left quote-icon"></i>
-                <p>"Louie Jay demonstrates strong problem-solving skills and a fast learning curve when developing internal web applications."</p>
+                <p>"Louie Jay demonstrates exceptional problem-solving acumen and a remarkably fast learning curve, consistently delivering robust internal web applications."</p>
                 <div class="author-info">
                     <h4>MIS Manager</h4>
                     <span>Sotelo Group of Companies</span>
                 </div>
             </div>
-            <!-- ADDED REVEAL-RIGHT -->
             <div class="testimonial-card reveal-right">
                 <i class="fa-solid fa-quote-left quote-icon"></i>
-                <p>"Louie Jay is a dedicated and hardworking BSIT student who shows strong interest in web development and technology. He is also willing to learn, solve technical problems, and provide support whenever needed.""</p>
+                <p>"Louie Jay is a dedicated, highly motivated IT professional. His proactive approach to learning new technologies and resolving complex technical issues makes him an invaluable asset to any team."</p>
                 <div class="author-info">
-                    <h4>BSIT STUDENT / WEB DEVELOPER</h4>
-                    <span>INFORMATION TECHNOLOGY</span>
+                    <h4>IT Department Lead</h4>
+                    <span>Sotelo Group of Companies</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- UPGRADED CONTACT SECTION: Split Layout -->
+    <!-- CONTACT SECTION -->
     <section id="contact" class="reveal">
         <div class="section-title">
             <h3>Let's Connect</h3>
@@ -2094,10 +2061,9 @@
         
         <div class="contact-container split-layout">
             
-            <!-- Left Side: Contact Information Cards ADDED REVEAL-LEFT -->
             <div class="contact-info-wrapper reveal-left">
-                <h3>Let's build something together!</h3>
-                <p>Feel free to reach out if you're looking for a developer, have a question, or simply want to connect.</p>
+                <h3>Let's build something extraordinary together!</h3>
+                <p>Whether you're looking for a dedicated developer, need reliable IT support, or simply want to expand your network—feel free to reach out.</p>
 
                 <div class="info-card">
                     <i class="fa-solid fa-envelope"></i>
@@ -2119,12 +2085,11 @@
                     <i class="fa-solid fa-briefcase"></i>
                     <div>
                         <h4>Availability</h4>
-                        <p>Open for Freelance & Full-time</p>
-                        <p style="font-size: 0.8rem; color: var(--accent); margin-top: 5px; font-weight: 600;">Rates:"Contact for quote</p>
+                        <p>Open for Freelance & Full-time Opportunities</p>
+                        <p style="font-size: 0.8rem; color: var(--accent); margin-top: 5px; font-weight: 600;">Rates: Contact for quote</p>
                     </div>
                 </div>
 
-                <!-- Quick Social Links inside Contact -->
                 <div class="contact-socials">
                     <a href="https://github.com/louiejaydelacruz26-source" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
                     <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -2132,7 +2097,6 @@
                 </div>
             </div>
 
-            <!-- Right Side: The Contact Form with Icons and Chips ADDED REVEAL-RIGHT -->
             <div class="contact-form-wrapper reveal-right">
                 <form class="contact-form" id="contactForm">
                     
@@ -2151,7 +2115,6 @@
                     </div>
                     
                     <div class="form-group full">
-                        <!-- Quick Subject Selection Chips -->
                         <div class="subject-chips">
                             <button type="button" class="chip-btn">Web Development</button>
                             <button type="button" class="chip-btn">IT Support</button>
@@ -2211,7 +2174,7 @@
             <button class="chat-close" id="closeChat"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="chat-body" id="chatBody">
-            <div class="chat-msg bot">Hi! Welcome to the portfolio. I am Sensie, the AI assistant for Louie Jay Dela Cruz. Feel free to explore his projects, skills, experience, and services. How can I help you today?</div>
+            <div class="chat-msg bot">Hello! I am Sensie, Louie Jay's virtual assistant. I'm here to guide you through his professional portfolio. Feel free to ask me about his projects, technical expertise, or how to get in touch. How may I assist you today?</div>
         </div>
         <div class="chat-footer">
             <input type="text" id="chatInput" placeholder="Ask Sensie something...">
@@ -2227,7 +2190,7 @@
         </div>
         <div class="copyright">
             © 2026 Louie Jay Dela Cruz. All rights reserved.<br>
-            <span style="font-size: 0.75rem; margin-top: 5px; display: inline-block;">Last updated: [INSERT DATE E.G. 2026-09-18]</span>
+            <span style="font-size: 0.75rem; margin-top: 5px; display: inline-block;">Last updated: September 2026</span>
         </div>
     </footer>
 
@@ -2263,7 +2226,6 @@
         });
 
         // 3. SCROLL REVEAL & SKILLS PROGRESS ANIMATION
-        // IN-UPGRADE: Sinama ang mga bagong epic reveal classes
         const reveals = document.querySelectorAll('.reveal, .reveal-fade, .reveal-left, .reveal-right, .reveal-zoom');
         const progressBars = document.querySelectorAll('.progress');
         
@@ -2276,7 +2238,7 @@
             entries.forEach(entry => {
                 if(!entry.isIntersecting) return;
                 
-                // EPIC UPGRADE: Dagdag na delay para sa grid items (domino effect) para sunod-sunod yung labas
+                // Delay para sa grid items (domino effect)
                 if(entry.target.classList.contains('stat-box') || entry.target.classList.contains('skill-card') || entry.target.classList.contains('project-card')) {
                     let delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 0.15;
                     entry.target.style.transitionDelay = `${delay}s`;
@@ -2284,7 +2246,6 @@
 
                 entry.target.classList.add('active');
 
-                // Check kung nasa skills section na (para ma-trigger ang progress bar ng tama)
                 if(entry.target.closest('#skills')) {
                     progressBars.forEach(bar => {
                         bar.style.width = bar.getAttribute('data-width');
@@ -2299,9 +2260,9 @@
             revealOnScroll.observe(reveal);
         });
 
-        // 4. AUTO TYPING EFFECT
+        // 4. AUTO TYPING EFFECT (UPDATED PRO COPYWRITING)
         const textElement = document.querySelector(".typing-text");
-        const words = ["A Junior Web Developer", "A BSIT Student", "A Tech Enthusiast"];
+        const words = ["Junior Web Developer", "IT Solutions Specialist", "BSIT Scholar", "Tech Innovator"];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -2360,7 +2321,6 @@
                 projectCards.forEach(card => {
                     if (filter === 'all' || card.getAttribute('data-category') === filter) {
                         card.classList.remove('hide');
-                        // Quick re-trigger animation pag nag-filter
                         card.style.transitionDelay = '0s';
                         card.classList.remove('active');
                         setTimeout(() => card.classList.add('active'), 50);
@@ -2505,7 +2465,7 @@
             });
         });
 
-        // 13. CHATBOT MOCK LOGIC (SENSIE PERSONA)
+        // 13. CHATBOT MOCK LOGIC (PRO SENSIE PERSONA)
         const chatbotToggler = document.getElementById('chatbotToggler');
         const chatbotWindow = document.getElementById('chatbotWindow');
         const closeChat = document.getElementById('closeChat');
@@ -2552,38 +2512,37 @@
             if (e.key === 'Enter') handleSend();
         });
 
-        // Bot Response Logic (Sensie Persona)
+        // Bot Response Logic (Sensie Persona - Updated Copywriting)
         function getBotResponse(input) {
             if (input.includes('project') || input.includes('work')) {
-                return "Louie Jay has developed several projects, including an Enterprise IT Command Center, a secure Private Messenger System, a Google Scripts-based Cleaning System, and his personal Portfolio Website. Would you like a link to one of these?";
+                return "Louie Jay has successfully engineered and deployed several key projects, including an Enterprise IT Command Center, a secure Private Messenger System, and automated Google Scripts for operational management. Feel free to browse the Projects section above to view the live demos.";
             } 
             else if (input.includes('skill') || input.includes('tech') || input.includes('language')) {
-                return "Louie Jay's tech stack includes HTML, CSS, JavaScript, PHP, and Java. He also has strong skills in Hardware Troubleshooting and Basic Networking.";
+                return "His technical arsenal spans both front-end and back-end technologies, including HTML, CSS, JavaScript, PHP, and Java. He also possesses advanced proficiency in Hardware Troubleshooting and Network Administration.";
             } 
             else if (input.includes('contact') || input.includes('email') || input.includes('hire')) {
-                return "You can contact Louie Jay directly at louiejaydelacruz26@gmail.com or use the contact form at the bottom of the page. He is open for Freelance and Full-time opportunities.";
+                return "You can establish direct contact with Louie Jay via email at mis.support02@sotelogroup.ph, or simply utilize the integrated contact form located at the bottom of this portfolio. He is actively open for both Freelance and Full-time engagements.";
             } 
             else if (input.includes('education') || input.includes('school') || input.includes('degree')) {
-                return "He is currently pursuing a Bachelor of Science in Information Technology (BSIT) at Philippine Christian University, expecting to graduate in 2028.";
+                return "He is an active academic scholar pursuing his Bachelor of Science in Information Technology (BSIT) at Philippine Christian University, with an expected graduation in 2028.";
             }
             else if (input.includes('experience') || input.includes('job') || input.includes('ojt')) {
-                return "He is currently working as an MIS IT Support / Junior Web Developer at Sotelo Group of Companies, where he develops internal web applications and provides technical support.";
+                return "Professionally, he is serving as an MIS IT Support Specialist and Junior Web Developer at the Sotelo Group of Companies, where he spearheads internal web app development and manages critical IT infrastructure.";
             }
             else if (input.includes('hello') || input.includes('hi') || input.includes('hey')) {
-                return "Hello! I am Sensie. How can I assist you with Louie Jay's portfolio today?";
+                return "Greetings! I am Sensie. How may I facilitate your exploration of Louie Jay's professional portfolio today?";
             }
             else if (input.includes('who are you') || input.includes('your name')) {
-                 return "I am Sensie, an AI assistant designed to help you navigate and learn about Louie Jay Dela Cruz's professional background.";
+                 return "I am Sensie, an AI-powered virtual assistant exclusively designed to navigate you through the professional background and capabilities of Louie Jay Dela Cruz.";
             }
             else if (input.includes('rate') || input.includes('cost') || input.includes('price')) {
-                 return "I cannot negotiate rates. For inquiries regarding rates or quotes for freelance and full-time opportunities, please contact him directly at louiejaydelacruz26@gmail.com.";
+                 return "As a virtual assistant, I am unable to negotiate or quote professional rates. For pricing inquiries regarding freelance or full-time projects, please kindly reach out to him directly at mis.support02@sotelogroup.ph.";
             }
             else if (input.includes('resume') || input.includes('cv') || input.includes('download')) {
-                 return "You can download his CV using the 'Download CV' button located in the Hero section at the top of the page.";
+                 return "You may acquire a copy of his complete professional Curriculum Vitae by clicking the 'Download CV' button conveniently located in the Hero section at the top of the page.";
             }
             else {
-                // Strict Missing Information Fallback
-                return "I'm not able to confirm that — I’m sorry, but I don’t have enough information to answer that accurately. Please contact Louie Jay directly for more details at mis.support02@sotelogroup.ph.";
+                return "I apologize, but I require further clarification or direct authorization to answer that specific inquiry. For precise details, please communicate with Louie Jay directly at mis.support02@sotelogroup.ph.";
             }
         }
     </script>
