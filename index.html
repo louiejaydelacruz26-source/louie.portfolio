@@ -85,12 +85,32 @@
             text-decoration: none;
             font-size: 0.9rem;
             transition: 0.3s;
+            position: relative;
+            padding-bottom: 5px; /* UPGRADE: Space for sliding underline */
+        }
+
+        /* UPGRADE: Sliding Underline Animation on Nav Links */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+            border-radius: 2px;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--primary);
             text-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         /* --- BAGONG PILL THEME SWITCH (KATABI NG CONTACT) --- */
@@ -178,6 +198,23 @@
             font-size: 0.85rem;
             transition: 0.3s;
             box-shadow: 0 5px 15px rgba(124, 58, 237, 0.2);
+            position: relative; /* UPGRADE: Shine effect setup */
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* UPGRADE: Button Shine Effect */
+        .btn-hire::before, .btn-primary::before, .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+        
+        .btn-hire:hover::before, .btn-primary:hover::before, .btn-submit:hover::before {
+            left: 100%;
         }
 
         .btn-hire:hover {
@@ -293,13 +330,28 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* UPGRADE: Blinking Cursor and Wrapper */
+        .typing-wrapper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            height: 35px;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .typing-cursor {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 600;
+            animation: blink 0.8s infinite;
+        }
+
         .typing-text {
             font-size: 1.5rem;
             color: var(--primary);
             font-weight: 600;
-            margin-bottom: 15px;
-            display: block;
-            height: 35px;
+            /* Inalis yung display block at height para ang wrapper ang mag handle */
         }
 
         .hero-content p {
@@ -329,6 +381,9 @@
             gap: 8px;
             transition: 0.3s;
             box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+            position: relative; /* UPGRADE: Shine setup */
+            overflow: hidden;
+            z-index: 1;
         }
 
         .btn-primary:hover {
@@ -401,11 +456,27 @@
             flex-wrap: wrap;
         }
 
+        /* UPGRADE: Continuous Floating Animation for Tech Icons */
+        @keyframes floatContinuous {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
         /* Tooltip Container */
         .tech-tooltip {
             position: relative;
             display: inline-block;
         }
+
+        /* UPGRADE: Applied floating delays to each icon */
+        .tech-tooltip:nth-child(1) .tech-icon-img { animation-delay: 0s; }
+        .tech-tooltip:nth-child(2) .tech-icon-img { animation-delay: 0.2s; }
+        .tech-tooltip:nth-child(3) .tech-icon-img { animation-delay: 0.4s; }
+        .tech-tooltip:nth-child(4) .tech-icon-img { animation-delay: 0.6s; }
+        .tech-tooltip:nth-child(5) .tech-icon-img { animation-delay: 0.8s; }
+        .tech-tooltip:nth-child(6) .tech-icon-img { animation-delay: 1.0s; }
+        .tech-tooltip:nth-child(7) .tech-icon-img { animation-delay: 1.2s; }
 
         .tech-icon-img {
             width: 42px;
@@ -417,13 +488,15 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: 0.3s ease;
             cursor: pointer;
+            animation: floatContinuous 3s ease-in-out infinite; /* Added Float */
         }
 
         .tech-icon-img:hover {
             border-color: var(--primary);
-            transform: translateY(-5px);
+            transform: translateY(-5px); /* Optional: hover effect overrides float */
             background: #1e293b;
             box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+            animation-play-state: paused; /* Stops float when hovered */
         }
 
         .tech-tooltip .tooltip-text {
@@ -463,6 +536,13 @@
             align-items: center;
         }
 
+        /* UPGRADE: Breathing Glowing Frame */
+        @keyframes breathingGlow {
+            0% { box-shadow: 0 0 30px rgba(124, 58, 237, 0.7), 0 0 60px rgba(6, 182, 212, 0.4); }
+            50% { box-shadow: 0 0 50px rgba(124, 58, 237, 1), 0 0 90px rgba(6, 182, 212, 0.7); }
+            100% { box-shadow: 0 0 30px rgba(124, 58, 237, 0.7), 0 0 60px rgba(6, 182, 212, 0.4); }
+        }
+
         /* Glowing Frame with 3-Image Slideshow */
         .hero-card-frame {
             position: relative;
@@ -472,7 +552,7 @@
             background: #22262e;
             overflow: hidden;
             border: 6px solid var(--primary); 
-            box-shadow: 0 0 30px rgba(124, 58, 237, 0.7), 0 0 60px rgba(6, 182, 212, 0.4);
+            animation: breathingGlow 4s ease-in-out infinite; /* Added Glow Animation */
         }
 
         .hero-card-frame img {
@@ -527,7 +607,8 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            /* UPGRADE: Changed ease to cubic-bezier for spring effect */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .stat-box:hover {
@@ -628,7 +709,8 @@
             border-radius: 12px;
             border: 1px solid var(--border-color);
             overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            /* UPGRADE: Changed ease to cubic-bezier for spring effect */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .skill-card:hover {
@@ -720,7 +802,8 @@
             border: 1px solid var(--border-color);
             border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            /* UPGRADE: Changed ease to cubic-bezier for spring effect */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .project-card.hide {
@@ -813,7 +896,8 @@
             padding: 30px;
             border-radius: 12px;
             position: relative;
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            /* UPGRADE: Changed ease to cubic-bezier for spring effect */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .testimonial-card:hover {
@@ -1122,6 +1206,9 @@
             cursor: pointer;
             transition: 0.3s;
             grid-column: 1 / -1;
+            position: relative; /* UPGRADE: Shine effect setup */
+            overflow: hidden;
+            z-index: 1;
         }
 
         .btn-submit:hover {
@@ -1286,7 +1373,8 @@
             border-right: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
             position: relative;
-            transition: 0.3s;
+            /* UPGRADE: Changed ease to cubic-bezier for spring effect */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .journey-box:hover {
             transform: translateX(5px);
@@ -1363,6 +1451,13 @@
         .cert-info span.date { color: var(--text-muted); font-size: 0.8rem; }
 
         /* --- CHATBOT UI CSS --- */
+        /* UPGRADE: Pulse animation for Chatbot */
+        @keyframes pulseChat {
+            0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(124, 58, 237, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+        }
+
         .chatbot-toggler {
             position: fixed;
             bottom: 30px;
@@ -1380,10 +1475,12 @@
             z-index: 2500;
             transition: 0.3s;
             font-size: 1.5rem;
+            animation: pulseChat 2s infinite; /* Applied pulse animation */
         }
 
         .chatbot-toggler:hover {
             transform: scale(1.1);
+            animation-play-state: paused;
         }
 
         .chatbot-window {
@@ -1581,7 +1678,10 @@
         <div class="hero-content reveal-left">
             <span class="badge-dev">WELCOME TO MY PORTFOLIO</span>
             <h1>Hi, I'm Louie Jay</h1>
-            <span class="typing-text"></span>
+            <!-- UPGRADE: Wrapper at Blinking cursor para sa Typing Text -->
+            <div class="typing-wrapper">
+                <span class="typing-text"></span><span class="typing-cursor">|</span>
+            </div>
             
             <p>As a dedicated BSIT student and Junior Web Developer, I combine my academic foundation with hands-on technical skills. I am passionate about building responsive web applications, solving real-world IT problems, and continuously expanding my tech stack.</p>
             
@@ -1607,7 +1707,6 @@
                         <img src="images.jpeg" alt="CSS" class="tech-icon-img">
                         <span class="tooltip-text">CSS3: Flexbox, Grid & Modern UI</span>
                     </div>
-
                     <div class="tech-tooltip">
                         <img src="github.jpeg" alt="GitHub" class="tech-icon-img">
                         <span class="tooltip-text">Github: Version Control & Collaboration</span>
@@ -2484,7 +2583,7 @@
             }
             else {
                 // Strict Missing Information Fallback
-                return "I'm not able to confirm that — I’m sorry, but I don’t have enough information to answer that accurately. Please contact Louie Jay directly for more details at louiejaydelacruz26@gmail.com.";
+                return "I'm not able to confirm that — I’m sorry, but I don’t have enough information to answer that accurately. Please contact Louie Jay directly for more details at mis.support02@sotelogroup.ph.";
             }
         }
     </script>
