@@ -1338,6 +1338,167 @@
         .cert-info span.issuer { color: var(--accent); font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 5px; }
         .cert-info span.date { color: var(--text-muted); font-size: 0.8rem; }
 
+        /* --- CHATBOT CSS PARA BUMALIK SA DATI AT MAGING MAAYOS --- */
+        .chatbot-toggler {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .chatbot-toggler:hover {
+            transform: scale(1.1);
+            background: var(--accent);
+        }
+
+        .chatbot-window {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 350px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-window.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .chat-header {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-header span {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .chat-close:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-body {
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: var(--bg-color);
+        }
+
+        .chat-msg {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .chat-msg.bot {
+            background: var(--card-bg);
+            color: var(--text-main);
+            align-self: flex-start;
+            border: 1px solid var(--border-color);
+            border-bottom-left-radius: 2px;
+        }
+
+        .chat-msg.user {
+            background: var(--primary);
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .chat-footer {
+            display: flex;
+            padding: 15px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            gap: 10px;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            background: var(--input-bg);
+            color: var(--text-main);
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .chat-footer input:focus {
+            border-color: var(--primary);
+        }
+
+        .chat-footer button {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .chat-footer button:hover {
+            background: var(--accent);
+            transform: scale(1.1);
+        }
+
         /* ---------------------------------------------------
            MOBILE RESPONSIVENESS (iOS & ANDROID MEDIA QUERIES)
            --------------------------------------------------- */
@@ -1560,7 +1721,6 @@
                 <span class="typing-text"></span><span class="typing-cursor">|</span>
             </div>
             
-            <!-- PRO COPYWRITING UPDATE -->
             <p>An IT student and beginner web developer who enjoys building web applications, learning database design, and providing IT support at Sotelo Group of Companies. I'm continuously growing my skills by working on real projects and turning ideas into working solutions.</p>
             
             <div class="hero-btns">
@@ -1605,7 +1765,6 @@
                         <img src="xampp.jpeg" alt="Xampp" class="tech-icon-img">
                         <span class="tooltip-text">XAMPP: Local MySQL & Apache Server</span>
                     </div>
-                    <!-- ADDED VISUAL STUDIO TO TECH STACK -->
                     <div class="tech-tooltip">
                         <img src="visual-studio-code-logo-png_seeklogo-384323.png" alt="Visual Studio" class="tech-icon-img">
                         <span class="tooltip-text">Visual Studio: IDE & Code Editor</span>
@@ -1616,7 +1775,6 @@
 
         <div class="hero-img-container reveal-right">
             <div class="hero-card-frame">
-                <!-- IMPORTANT: I dinagdag ko ang class na "active" dito para lumitaw ang image -->
                 <img src="helo.png" alt="Louie Jay Profile Picture" class="active">
             </div>
         </div>
@@ -1624,7 +1782,6 @@
 
     <!-- Stats Section -->
     <div class="stats-section reveal">
-        <!-- PRO COPYWRITING UPDATE -->
         <div class="stat-box reveal-zoom">
             <i class="fa-solid fa-graduation-cap"></i>
             <div>
@@ -1662,7 +1819,6 @@
             <h2>I'm passionate about creating digital solutions</h2>
         </div>
         <div class="about-content-box">
-            <!-- PRO COPYWRITING UPDATE -->
             <p>
                 Based in Parañaque, Metro Manila, I am an IT student and beginner web developer with a strong curiosity for technology. I'm learning both front-end design and back-end logic, and I apply what I learn through hands-on projects and my IT Support work at Sotelo Group of Companies. My goal is to keep improving, gain real-world experience, and grow into a well-rounded developer.
             </p>
@@ -1684,7 +1840,6 @@
                     <span class="journey-date">2024 - Expected 2028</span>
                     <h4 class="journey-title">Bachelor of Science in Information Technology (BSIT)</h4>
                     <p class="journey-subtitle">Philippine Christian University</p>
-                    <!-- PRO COPYWRITING UPDATE -->
                     <p class="journey-desc">Currently studying core IT topics such as web development, software engineering, databases, and networking, while applying them in real projects.</p>
                 </div>
             </div>
@@ -1696,7 +1851,6 @@
                     <span class="journey-date">2024 TO 2026</span>
                     <h4 class="journey-title">MIS IT SUPPORT / BEGINNER WEB DEVELOPER</h4>
                     <p class="journey-subtitle">Sotelo Group of Companies</p>
-                    <!-- PRO COPYWRITING UPDATE -->
                     <p class="journey-desc">Helped build and maintain internal web applications, including the Enterprise IT Command Center. Provided IT support by troubleshooting hardware, software, and network issues, and learned to create system improvements using PHP, JavaScript, and MySQL.</p>
                 </div>
             </div>
@@ -1798,7 +1952,6 @@
                 <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
             </div>
             
-            <!-- ADDED VISUAL STUDIO SKILL CARD -->
             <div class="skill-card reveal-zoom">
                 <div class="skill-info">
                     <div class="skill-name-container">
@@ -1816,7 +1969,7 @@
     <section id="projects" class="reveal">
         <div class="section-title">
             <h3>Featured Projects</h3>
-            <h2>Showcasing Innovative Digital Solutions</h2> <!-- PRO COPYWRITING UPDATE -->
+            <h2>Showcasing Innovative Digital Solutions</h2>
         </div>
 
         <div class="project-filters">
@@ -1921,7 +2074,6 @@
         </div>
         
         <div class="cert-grid">
-            <!-- UPDATED WITH CLICK-TO-VIEW MODAL FUNCTIONALITY -->
             <div class="cert-card reveal-zoom open-modal" 
                  data-title="PHILIPPINE COMPUTER SOCIETY"
                  data-category="CERTIFICATION"
@@ -2087,7 +2239,8 @@
             <button class="chat-close" id="closeChat"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="chat-body" id="chatBody">
-            <div class="chat-msg bot">Hello! I am Sensie, Louie Jay's virtual assistant. I'm here to guide you through his professional portfolio. Feel free to ask me about his projects, technical expertise, or how to get in touch. How may I assist you today?</div>
+            <!-- UPDATED WELCOME MESSAGE IN HTML TO MATCH TEMPLATE -->
+            <div class="chat-msg bot">Hello! I am Sensie, the AI assistant for Louie Jay Dela Cruz. I can help you explore his education, technical skills, or featured projects. How can I help you today?</div>
         </div>
         <div class="chat-footer">
             <input type="text" id="chatInput" placeholder="Ask Sensie something...">
@@ -2173,7 +2326,7 @@
             revealOnScroll.observe(reveal);
         });
 
-        // 4. AUTO TYPING EFFECT (UPDATED PRO COPYWRITING)
+        // 4. AUTO TYPING EFFECT 
         const textElement = document.querySelector(".typing-text");
         const words = ["beginner Web Developer", "IT Support Specialist", "BSIT Student"];
         let wordIndex = 0;
@@ -2206,21 +2359,7 @@
             setTimeout(typeEffect, 1000);
         });
 
-        // 5. ROTATING PROFILE IMAGE SLIDESHOW
-        const slides = document.querySelectorAll('.profile-slide');
-        let currentSlide = 0;
-
-        function rotateSlides() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        if (slides.length > 0) {
-            setInterval(rotateSlides, 3500);
-        }
-
-        // 6. PROJECT CATEGORY FILTERING
+        // 5. PROJECT CATEGORY FILTERING
         const filterBtns = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
 
@@ -2244,7 +2383,7 @@
             });
         });
 
-        // 7. MODAL LOGIC (UPDATED FOR BOTH PROJECTS AND CERTIFICATIONS)
+        // 6. MODAL LOGIC 
         const projectModal = document.getElementById('projectModal');
         const modalClose = document.getElementById('modalClose');
         const openModalBtns = document.querySelectorAll('.open-modal');
@@ -2284,7 +2423,7 @@
             if (e.target === projectModal) projectModal.classList.remove('active');
         });
 
-        // 8. BACK TO TOP & ACTIVE NAV HIGHLIGHT
+        // 7. BACK TO TOP & ACTIVE NAV HIGHLIGHT
         const backToTopBtn = document.getElementById("backToTop");
         const sections = document.querySelectorAll("section");
 
@@ -2311,7 +2450,7 @@
             });
         });
 
-        // 9. VIDEO SOUND TOGGLE
+        // 8. VIDEO SOUND TOGGLE
         const bgVideo = document.getElementById("bgVideo");
         const soundToggle = document.getElementById("soundToggle");
 
@@ -2327,7 +2466,7 @@
             }
         });
 
-        // 10. TOAST NOTIFICATION FUNCTION
+        // 9. TOAST NOTIFICATION FUNCTION
         function showToast(msg) {
             const toast = document.getElementById('toast');
             document.getElementById('toastMsg').innerText = msg;
@@ -2335,7 +2474,7 @@
             setTimeout(() => toast.classList.remove('show'), 4000);
         }
 
-        // 11. QUICK SUBJECT CHIP LOGIC
+        // 10. QUICK SUBJECT CHIP LOGIC
         const chipBtns = document.querySelectorAll('.chip-btn');
         const subjectInput = document.getElementById('subject');
 
@@ -2348,7 +2487,7 @@
             });
         });
 
-        // 12. AJAX CONTACT FORM SUBMISSION
+        // 11. AJAX CONTACT FORM SUBMISSION
         const contactForm = document.getElementById("contactForm");
         const submitBtn = document.getElementById("submitBtn");
 
@@ -2386,7 +2525,7 @@
             });
         });
 
-        // 13. CHATBOT MOCK LOGIC (PRO SENSIE PERSONA)
+        // 12. CHATBOT LOGIC (UPDATED WITH THE ASSISTANT INSTRUCTIONS TEMPLATE)
         const chatbotToggler = document.getElementById('chatbotToggler');
         const chatbotWindow = document.getElementById('chatbotWindow');
         const closeChat = document.getElementById('closeChat');
@@ -2433,37 +2572,47 @@
             if (e.key === 'Enter') handleSend();
         });
 
-        // Bot Response Logic (Sensie Persona - Updated Copywriting)
+        // BOT LOGIC: Strictly follows the instructions template.
         function getBotResponse(input) {
-            if (input.includes('project') || input.includes('work')) {
-                return "Louie Jay has successfully engineered and deployed several key projects, including an Enterprise IT Command Center, a secure Private Messenger System, and automated Google Scripts for operational management. Feel free to browse the Projects section above to view the live demos.";
+            // Check for Projects
+            if (input.includes('project') || input.includes('work') || input.includes('build')) {
+                return "Louie Jay has built several web applications, including the Enterprise IT Command Center, a Private Messenger System, and a Cleaning System using Google Apps Script. He also developed this responsive portfolio website. You can view the live demos in the Projects section above. Is there a specific project you'd like to know more about?";
             } 
-            else if (input.includes('skill') || input.includes('tech') || input.includes('language')) {
-                return "His technical arsenal spans both front-end and back-end technologies, including HTML, CSS, JavaScript, PHP, Java, and Visual Studio. He also possesses advanced proficiency in Hardware Troubleshooting and Network Administration.";
+            // Check for Skills
+            else if (input.includes('skill') || input.includes('tech') || input.includes('language') || input.includes('tool')) {
+                return "Louie Jay's technical skills include HTML, CSS, JavaScript, PHP, Java, and Visual Studio. He is also experienced in XAMPP, basic networking, and hardware troubleshooting. Would you like to know how he applied these in his experience?";
             } 
-            else if (input.includes('contact') || input.includes('email') || input.includes('hire')) {
-                return "You can establish direct contact with Louie Jay via email at mis.support02@sotelogroup.ph, or simply utilize the integrated contact form located at the bottom of this portfolio. He is actively open for both Freelance and Full-time engagements.";
+            // Check for Contact/Hire
+            else if (input.includes('contact') || input.includes('email') || input.includes('hire') || input.includes('message')) {
+                return "You can contact Louie Jay directly for freelance or full-time opportunities by emailing him at mis.support02@sotelogroup.ph. Alternatively, you can use the contact form located at the bottom of this page.";
             } 
-            else if (input.includes('education') || input.includes('school') || input.includes('degree')) {
-                return "He is an active academic scholar pursuing his Bachelor of Science in Information Technology (BSIT) at Philippine Christian University, with an expected graduation in 2028.";
+            // Check for Education
+            else if (input.includes('education') || input.includes('school') || input.includes('degree') || input.includes('study')) {
+                return "Louie Jay is currently pursuing a Bachelor of Science in Information Technology (BSIT) at Philippine Christian University. He is expected to graduate in 2028.";
             }
-            else if (input.includes('experience') || input.includes('job') || input.includes('ojt')) {
-                return "Professionally, he is serving as an MIS IT Support Specialist and Junior Web Developer at the Sotelo Group of Companies, where he spearheads internal web app development and manages critical IT infrastructure.";
+            // Check for Experience/Job
+            else if (input.includes('experience') || input.includes('job') || input.includes('work') || input.includes('ojt')) {
+                return "He works as an MIS IT Support and Beginner Web Developer at Sotelo Group of Companies (2024 to 2026). His role involves building internal web apps and providing IT support, including hardware and network troubleshooting.";
             }
+            // Check for Greetings
             else if (input.includes('hello') || input.includes('hi') || input.includes('hey')) {
-                return "Greetings! I am Sensie. How may I facilitate your exploration of Louie Jay's professional portfolio today?";
+                return "Hello! I am Sensie, the AI assistant for Louie Jay Dela Cruz. I can help you explore his education, technical skills, or featured projects. How can I help you today?";
             }
-            else if (input.includes('who are you') || input.includes('your name')) {
-                 return "I am Sensie, an AI-powered virtual assistant exclusively designed to navigate you through the professional background and capabilities of Louie Jay Dela Cruz.";
+            // Check for Identity
+            else if (input.includes('who are you') || input.includes('your name') || input.includes('bot')) {
+                 return "I am Sensie, an AI assistant built to help visitors, recruiters, and potential collaborators understand Louie Jay's professional background and capabilities.";
             }
-            else if (input.includes('rate') || input.includes('cost') || input.includes('price')) {
-                 return "As a virtual assistant, I am unable to negotiate or quote professional rates. For pricing inquiries regarding freelance or full-time projects, please kindly reach out to him directly at mis.support02@sotelogroup.ph.";
+            // Capability limits / Unavailable info (Price/Booking)
+            else if (input.includes('rate') || input.includes('cost') || input.includes('price') || input.includes('book')) {
+                 return "As an AI assistant, I cannot negotiate rates, accept work, or make commitments for him. Please contact Louie Jay directly at mis.support02@sotelogroup.ph to discuss pricing and project quotes.";
             }
+            // Check for Resume
             else if (input.includes('resume') || input.includes('cv') || input.includes('download')) {
-                 return "You may acquire a copy of his complete professional Curriculum Vitae by clicking the 'Download CV' button conveniently located in the Hero section at the top of the page.";
+                 return "You can download his complete professional Curriculum Vitae by clicking the 'Download CV' button located in the hero section at the very top of this page.";
             }
+            // FALLBACK MESSAGE (Template Requirement)
             else {
-                return "I apologize, but I require further clarification or direct authorization to answer that specific inquiry. For precise details, please communicate with Louie Jay directly at mis.support02@sotelogroup.ph.";
+                return "I don't have that information in my current portfolio data. For confirmation or other specific inquiries, please reach out to Louie Jay directly at mis.support02@sotelogroup.ph.";
             }
         }
     </script>
