@@ -476,6 +476,7 @@
         .tech-tooltip:nth-child(5) .tech-icon-img { animation-delay: 0.8s; }
         .tech-tooltip:nth-child(6) .tech-icon-img { animation-delay: 1.0s; }
         .tech-tooltip:nth-child(7) .tech-icon-img { animation-delay: 1.2s; }
+        .tech-tooltip:nth-child(8) .tech-icon-img { animation-delay: 1.4s; } /* Added for VS */
 
         .tech-icon-img {
             width: 42px;
@@ -1417,6 +1418,7 @@
             gap: 20px;
             width: 100%;
             max-width: 800px; 
+            cursor: pointer; /* Added for interaction */
         }
         
         .cert-card:hover {
@@ -1715,13 +1717,18 @@
                         <img src="xampp.jpeg" alt="Xampp" class="tech-icon-img">
                         <span class="tooltip-text">XAMPP: Local MySQL & Apache Server</span>
                     </div>
+                    <!-- ADDED VISUAL STUDIO TO TECH STACK -->
+                    <div class="tech-tooltip">
+                        <img src="visual-studio.png" alt="Visual Studio" class="tech-icon-img">
+                        <span class="tooltip-text">Visual Studio: IDE & Code Editor</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="hero-img-container reveal-right">
             <div class="hero-card-frame">
-                <img src="louie.jpg" alt="Louie Jay Profile Picture 1" class="profile-slide active">
+                <img src="mikmik.png" alt="Louie Jay Profile Picture 1" class="profile-slide active">
                 <img src="helo.png" alt="Louie Jay Profile Picture 2" class="profile-slide">
                 <img src="jjs.png" alt="Louie Jay Profile Picture 3" class="profile-slide">
             </div>
@@ -1770,7 +1777,7 @@
         <div class="about-content-box">
             <!-- PRO COPYWRITING UPDATE -->
             <p>
-               Based in Parañaque, Metro Manila, I am an IT student and beginner web developer with a strong curiosity for technology. I'm learning both front-end design and back-end logic, and I apply what I learn through hands-on projects and my IT Support work at Sotelo Group of Companies. My goal is to keep improving, gain real-world experience, and grow into a well-rounded developer.
+                Based in Parañaque, Metro Manila, I am an IT student and beginner web developer with a strong curiosity for technology. I'm learning both front-end design and back-end logic, and I apply what I learn through hands-on projects and my IT Support work at Sotelo Group of Companies. My goal is to keep improving, gain real-world experience, and grow into a well-rounded developer.
             </p>
         </div>
     </section>
@@ -1803,7 +1810,7 @@
                     <h4 class="journey-title">MIS IT SUPPORT / BEGINNER WEB DEVELOPER</h4>
                     <p class="journey-subtitle">Sotelo Group of Companies</p>
                     <!-- PRO COPYWRITING UPDATE -->
-                    <p class="journey-desc">Helped build and maintain internal web applications, including the Enterprise IT Command Center. Provided IT support by troubleshooting hardware, software, and network issues, and learned to create system improvements using PHP, JavaScript, and MySQL.Helped build and maintain internal web applications, including the Enterprise IT Command Center. Provided IT support by troubleshooting hardware, software, and network issues, and learned to create system improvements using PHP, JavaScript, and MySQL.</p>
+                    <p class="journey-desc">Helped build and maintain internal web applications, including the Enterprise IT Command Center. Provided IT support by troubleshooting hardware, software, and network issues, and learned to create system improvements using PHP, JavaScript, and MySQL.</p>
                 </div>
             </div>
         </div>
@@ -1898,6 +1905,18 @@
                     <div class="skill-name-container">
                         <img src="network.jpeg" alt="Networking Icon" class="skill-icon">
                         <span>Basic Networking</span>
+                    </div>
+                    <span>80%</span>
+                </div>
+                <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
+            </div>
+            
+            <!-- ADDED VISUAL STUDIO SKILL CARD -->
+            <div class="skill-card reveal-zoom">
+                <div class="skill-info">
+                    <div class="skill-name-container">
+                        <img src="visual-studio.png" alt="Visual Studio Icon" class="skill-icon">
+                        <span>Visual Studio</span>
                     </div>
                     <span>80%</span>
                 </div>
@@ -2015,7 +2034,14 @@
         </div>
         
         <div class="cert-grid">
-            <div class="cert-card reveal-zoom">
+            <!-- UPDATED WITH CLICK-TO-VIEW MODAL FUNCTIONALITY -->
+            <div class="cert-card reveal-zoom open-modal" 
+                 data-title="PHILIPPINE COMPUTER SOCIETY"
+                 data-category="CERTIFICATION"
+                 data-desc="Issued by HILARIO F. NARIDA / PCS VICE PRESIDENT. Awarded for continuous learning and IT participation."
+                 data-img="Screenshot 2026-09-18 091834.png"
+                 data-tags="PCS, Information Technology, Award"
+                 data-url="">
                 <img src="Screenshot 2026-09-18 091834.png" alt="Certificate 1" class="cert-img">
                 <div class="cert-info">
                     <h4>PHILIPPINE COMPUTER SOCIETY</h4>
@@ -2140,7 +2166,7 @@
         </div>
     </section>
 
-    <!-- Project Details Pop-up Modal -->
+    <!-- Project / Image Details Pop-up Modal -->
     <div class="modal-overlay" id="projectModal">
         <div class="modal-container">
             <span class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></span>
@@ -2331,10 +2357,11 @@
             });
         });
 
-        // 7. PROJECT POP-UP MODAL LOGIC
+        // 7. MODAL LOGIC (UPDATED FOR BOTH PROJECTS AND CERTIFICATIONS)
         const projectModal = document.getElementById('projectModal');
         const modalClose = document.getElementById('modalClose');
         const openModalBtns = document.querySelectorAll('.open-modal');
+        const modalLinkBtn = document.getElementById('modalLink');
 
         openModalBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -2342,7 +2369,14 @@
                 document.getElementById('modalCategory').innerText = btn.getAttribute('data-category');
                 document.getElementById('modalDesc').innerText = btn.getAttribute('data-desc');
                 document.getElementById('modalImg').src = btn.getAttribute('data-img');
-                document.getElementById('modalLink').href = btn.getAttribute('data-url');
+                
+                const linkUrl = btn.getAttribute('data-url');
+                if (linkUrl && linkUrl !== "") {
+                    modalLinkBtn.style.display = 'inline-flex';
+                    modalLinkBtn.href = linkUrl;
+                } else {
+                    modalLinkBtn.style.display = 'none';
+                }
 
                 const tags = btn.getAttribute('data-tags').split(',');
                 const tagsContainer = document.getElementById('modalTags');
@@ -2518,7 +2552,7 @@
                 return "Louie Jay has successfully engineered and deployed several key projects, including an Enterprise IT Command Center, a secure Private Messenger System, and automated Google Scripts for operational management. Feel free to browse the Projects section above to view the live demos.";
             } 
             else if (input.includes('skill') || input.includes('tech') || input.includes('language')) {
-                return "His technical arsenal spans both front-end and back-end technologies, including HTML, CSS, JavaScript, PHP, and Java. He also possesses advanced proficiency in Hardware Troubleshooting and Network Administration.";
+                return "His technical arsenal spans both front-end and back-end technologies, including HTML, CSS, JavaScript, PHP, Java, and Visual Studio. He also possesses advanced proficiency in Hardware Troubleshooting and Network Administration.";
             } 
             else if (input.includes('contact') || input.includes('email') || input.includes('hire')) {
                 return "You can establish direct contact with Louie Jay via email at mis.support02@sotelogroup.ph, or simply utilize the integrated contact form located at the bottom of this portfolio. He is actively open for both Freelance and Full-time engagements.";
