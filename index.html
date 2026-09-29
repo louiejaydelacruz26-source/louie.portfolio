@@ -1338,167 +1338,6 @@
         .cert-info span.issuer { color: var(--accent); font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 5px; }
         .cert-info span.date { color: var(--text-muted); font-size: 0.8rem; }
 
-        /* --- CHATBOT CSS PARA BUMALIK SA DATI AT MAGING MAAYOS --- */
-        .chatbot-toggler {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary);
-            color: #fff;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
-            z-index: 1000;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-
-        .chatbot-toggler:hover {
-            transform: scale(1.1);
-            background: var(--accent);
-        }
-
-        .chatbot-window {
-            position: fixed;
-            bottom: 90px;
-            right: 30px;
-            width: 350px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            z-index: 1000;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-        }
-
-        .chatbot-window.show {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-
-        .chat-header {
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            color: #fff;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-header h4 {
-            margin: 0;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .chat-header span {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        
-        .chat-close:hover {
-            transform: scale(1.1);
-        }
-
-        .chat-body {
-            padding: 20px;
-            height: 300px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            background: var(--bg-color);
-        }
-
-        .chat-msg {
-            max-width: 80%;
-            padding: 10px 15px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            word-wrap: break-word;
-        }
-
-        .chat-msg.bot {
-            background: var(--card-bg);
-            color: var(--text-main);
-            align-self: flex-start;
-            border: 1px solid var(--border-color);
-            border-bottom-left-radius: 2px;
-        }
-
-        .chat-msg.user {
-            background: var(--primary);
-            color: #fff;
-            align-self: flex-end;
-            border-bottom-right-radius: 2px;
-        }
-
-        .chat-footer {
-            display: flex;
-            padding: 15px;
-            background: var(--card-bg);
-            border-top: 1px solid var(--border-color);
-            gap: 10px;
-        }
-
-        .chat-footer input {
-            flex: 1;
-            padding: 10px 15px;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
-            background: var(--input-bg);
-            color: var(--text-main);
-            outline: none;
-            transition: 0.3s;
-        }
-
-        .chat-footer input:focus {
-            border-color: var(--primary);
-        }
-
-        .chat-footer button {
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
-        }
-
-        .chat-footer button:hover {
-            background: var(--accent);
-            transform: scale(1.1);
-        }
-
         /* ---------------------------------------------------
            MOBILE RESPONSIVENESS (iOS & ANDROID MEDIA QUERIES)
            --------------------------------------------------- */
@@ -1573,7 +1412,6 @@
             .chip-btn { flex: 1 1 calc(50% - 10px); text-align: center; font-size: 0.75rem; padding: 8px; }
             
             .footer-info { flex-direction: column; gap: 10px; }
-            .chatbot-window { width: calc(100% - 40px); right: 20px; bottom: 90px; }
         }
 
         /* Footer */
@@ -1635,7 +1473,7 @@
         }
 
         #backToTop.show {
-            bottom: 100px;
+            bottom: 100px; /* Adjusted to accommodate Chatbase widget */
             opacity: 1;
             pointer-events: auto;
         }
@@ -2226,28 +2064,6 @@
         </div>
     </div>
 
-    <!-- Chatbot Interface -->
-    <div class="chatbot-toggler" id="chatbotToggler">
-        <i class="fa-solid fa-message"></i>
-    </div>
-    <div class="chatbot-window" id="chatbotWindow">
-        <div class="chat-header">
-            <div>
-                <h4>Sensie <i class="fa-solid fa-robot"></i></h4>
-                <span>AI Assistant</span>
-            </div>
-            <button class="chat-close" id="closeChat"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="chat-body" id="chatBody">
-            <!-- UPDATED WELCOME MESSAGE IN HTML TO MATCH TEMPLATE -->
-            <div class="chat-msg bot">Hello! I am Sensie, the AI assistant for Louie Jay Dela Cruz. I can help you explore his education, technical skills, or featured projects. How can I help you today?</div>
-        </div>
-        <div class="chat-footer">
-            <input type="text" id="chatInput" placeholder="Ask Sensie something...">
-            <button id="sendChat"><i class="fa-solid fa-paper-plane"></i></button>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer>
         <div class="footer-info">
@@ -2524,97 +2340,12 @@
                 submitBtn.disabled = false;
             });
         });
-
-        // 12. CHATBOT LOGIC (UPDATED WITH THE ASSISTANT INSTRUCTIONS TEMPLATE)
-        const chatbotToggler = document.getElementById('chatbotToggler');
-        const chatbotWindow = document.getElementById('chatbotWindow');
-        const closeChat = document.getElementById('closeChat');
-        const chatBody = document.getElementById('chatBody');
-        const chatInput = document.getElementById('chatInput');
-        const sendChat = document.getElementById('sendChat');
-
-        // Toggle Chat Window
-        chatbotToggler.addEventListener('click', () => {
-            chatbotWindow.classList.toggle('show');
-        });
-
-        closeChat.addEventListener('click', () => {
-            chatbotWindow.classList.remove('show');
-        });
-
-        // Function to append messages
-        function appendMessage(text, sender) {
-            const msgDiv = document.createElement('div');
-            msgDiv.classList.add('chat-msg', sender);
-            msgDiv.innerText = text;
-            chatBody.appendChild(msgDiv);
-            chatBody.scrollTop = chatBody.scrollHeight;
-        }
-
-        // Handle Send
-        function handleSend() {
-            const userText = chatInput.value.trim();
-            if (!userText) return;
-
-            // Display user message
-            appendMessage(userText, 'user');
-            chatInput.value = '';
-
-            // Simulate Bot Thinking
-            setTimeout(() => {
-                const response = getBotResponse(userText.toLowerCase());
-                appendMessage(response, 'bot');
-            }, 600);
-        }
-
-        sendChat.addEventListener('click', handleSend);
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleSend();
-        });
-
-        // BOT LOGIC: Strictly follows the instructions template.
-        function getBotResponse(input) {
-            // Check for Projects
-            if (input.includes('project') || input.includes('work') || input.includes('build')) {
-                return "Louie Jay has built several web applications, including the Enterprise IT Command Center, a Private Messenger System, and a Cleaning System using Google Apps Script. He also developed this responsive portfolio website. You can view the live demos in the Projects section above. Is there a specific project you'd like to know more about?";
-            } 
-            // Check for Skills
-            else if (input.includes('skill') || input.includes('tech') || input.includes('language') || input.includes('tool')) {
-                return "Louie Jay's technical skills include HTML, CSS, JavaScript, PHP, Java, and Visual Studio. He is also experienced in XAMPP, basic networking, and hardware troubleshooting. Would you like to know how he applied these in his experience?";
-            } 
-            // Check for Contact/Hire
-            else if (input.includes('contact') || input.includes('email') || input.includes('hire') || input.includes('message')) {
-                return "You can contact Louie Jay directly for freelance or full-time opportunities by emailing him at mis.support02@sotelogroup.ph. Alternatively, you can use the contact form located at the bottom of this page.";
-            } 
-            // Check for Education
-            else if (input.includes('education') || input.includes('school') || input.includes('degree') || input.includes('study')) {
-                return "Louie Jay is currently pursuing a Bachelor of Science in Information Technology (BSIT) at Philippine Christian University. He is expected to graduate in 2028.";
-            }
-            // Check for Experience/Job
-            else if (input.includes('experience') || input.includes('job') || input.includes('work') || input.includes('ojt')) {
-                return "He works as an MIS IT Support and Beginner Web Developer at Sotelo Group of Companies (2024 to 2026). His role involves building internal web apps and providing IT support, including hardware and network troubleshooting.";
-            }
-            // Check for Greetings
-            else if (input.includes('hello') || input.includes('hi') || input.includes('hey')) {
-                return "Hello! I am Sensie, the AI assistant for Louie Jay Dela Cruz. I can help you explore his education, technical skills, or featured projects. How can I help you today?";
-            }
-            // Check for Identity
-            else if (input.includes('who are you') || input.includes('your name') || input.includes('bot')) {
-                 return "I am Sensie, an AI assistant built to help visitors, recruiters, and potential collaborators understand Louie Jay's professional background and capabilities.";
-            }
-            // Capability limits / Unavailable info (Price/Booking)
-            else if (input.includes('rate') || input.includes('cost') || input.includes('price') || input.includes('book')) {
-                 return "As an AI assistant, I cannot negotiate rates, accept work, or make commitments for him. Please contact Louie Jay directly at mis.support02@sotelogroup.ph to discuss pricing and project quotes.";
-            }
-            // Check for Resume
-            else if (input.includes('resume') || input.includes('cv') || input.includes('download')) {
-                 return "You can download his complete professional Curriculum Vitae by clicking the 'Download CV' button located in the hero section at the very top of this page.";
-            }
-            // FALLBACK MESSAGE (Template Requirement)
-            else {
-                return "I don't have that information in my current portfolio data. For confirmation or other specific inquiries, please reach out to Louie Jay directly at mis.support02@sotelogroup.ph.";
-            }
-        }
     </script>
+    
+    <!-- CHATBASE AI SCRIPT EMBED -->
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="ZX9P_-A2cUimXGRw9N-mj";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+    
 </body>
 </html>
